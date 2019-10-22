@@ -1,5 +1,11 @@
 package calculator;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class Calculator {
     public static void main(String[] args) {
         // Переменные цельсия и фаренгейта
@@ -30,8 +36,41 @@ public class Calculator {
         //convTo - receives only string: "days", "hours", "min", "sec", "random text";
         System.out.println(secondsTo(100000.00, "hours", "days"));
 
+        //Мой возраст
+        // Не знаю как работать с датами в Java!
+
+        //Mark conversions
+        int pass = 54;
+        int total = 119;
+        System.out.println(passPrecent(pass, total));
+
+        //Multiple choise test score. total => previous total variable
+        double passed = 81.0;
+        double failed = 38.0;
+        System.out.println(passFailPrecent(passed, failed, total));
 
 
+
+        //Формула 9
+        int x = 15;
+        double nine = 1.1 * Math.exp(-x) + Math.abs(Math.cos(Math.sqrt(Math.PI * x))) + 3/8;
+        System.out.println(nine);
+
+        //Формула 10
+        double ten = 1/3 * Math.sqrt(Math.abs(Math.sin(x))) * Math.cbrt(Math.exp(0.12 * x));
+        System.out.println(ten);
+
+        //Формула 11
+        double eleven = 2* Math.PI * x - Math.abs(Math.sin(Math.sqrt(10.5 * x))) * 1 / Math.cbrt(Math.pow(x, 2)) + 1/7;
+        System.out.println(eleven);
+
+        //Формула 12
+        double twelve = Math.log(Math.sqrt(Math.abs(2 - x)) + 1.2) * 1 / (2 + Math.exp(-x)) + Math.cbrt(2 / x);
+        System.out.println(twelve);
+
+        //Формула 13
+        double thirteen = Math.pow(Math.exp(-2+x),1.0/5) * 1 / Math.sqrt(Math.pow(x , 2) + Math.pow(x, 4) + Math.log(Math.abs(x - 3.14)));
+        System.out.println(thirteen);
 
     }
     // Конвертация из цельсия в кельвин
@@ -166,8 +205,23 @@ public class Calculator {
             return errorOut;
         }
 
-
-
     };
+    // Marks conversions
+    static String passPrecent(int pass, int total){
+        String result = "your result is: " + pass * 100 / total + " %";
+        return result;
+    };
+
+    //Multiple choise test score
+    static String passFailPrecent(double pass, double fail, int total){
+        double passed = pass * 100 / total;
+        double failed = 100 - passed;
+        String result = "Result: passed " + passed + "%, failed " + failed + "%";
+        return result;
+    };
+
+
+
+
 
 }
